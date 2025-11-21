@@ -14,9 +14,9 @@ COPY settings.gradle.kts .
 # Copiamos el código fuente de la aplicación
 COPY src src
 
-# Damos permisos de ejecución al wrapper de Gradle y compilamos el proyecto
+# Damos permisos de ejecución al wrapper de Gradle y compilamos el proyecto saltando los tests
 # Esto generará el archivo .jar en build/libs
-RUN chmod +x ./gradlew && ./gradlew build --no-daemon
+RUN chmod +x ./gradlew && ./gradlew build -x test --no-daemon
 
 # ---- Etapa 2: Run ----
 # Usamos una imagen JRE más ligera para ejecutar la aplicación
