@@ -27,7 +27,9 @@ class TipoCamisaService(
     @Transactional
     fun update(id: Long, req: TipoCamisaRequest): TipoCamisa {
         val current = get(id)
-        return repo.save(current.copy(nombre = req.nombre.trim(), descripcion = req.descripcion))
+        current.nombre = req.nombre.trim()
+        current.descripcion = req.descripcion
+        return repo.save(current)
     }
 
     @Transactional
