@@ -7,23 +7,23 @@ import java.math.BigDecimal
 @Table(name = "camisas")
 class Camisa(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    var id: Long? = null,
 
     @Column(nullable = false, length = 120)
-    val nombre: String,
+    var nombre: String,
 
-    val talla: String? = null,
-    val color: String? = null,
+    var talla: String? = null,
+    var color: String? = null,
 
-    val precio: BigDecimal? = null,
+    var precio: BigDecimal? = null,
 
     @Column(name = "imagen_url")
-    val imagenUrl: String? = null,
+    var imagenUrl: String? = null,
 
-    val lat: Double? = null,
-    val lng: Double? = null,
+    var lat: Double? = null,
+    var lng: Double? = null,
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "tipo_id")
-    val tipo: TipoCamisa
+    var tipo: TipoCamisa
 )

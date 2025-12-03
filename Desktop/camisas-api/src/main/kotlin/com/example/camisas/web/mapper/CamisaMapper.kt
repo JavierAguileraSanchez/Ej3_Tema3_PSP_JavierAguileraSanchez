@@ -34,14 +34,15 @@ object CamisaMapper {
         )
     )
 
-    fun merge(entity: Camisa, req: CamisaRequest, tipo: TipoCamisa) = entity.copy(
-        nombre = req.nombre,
-        talla = req.talla,
-        color = req.color,
-        precio = req.precio,
-        imagenUrl = req.imagenUrl,
-        lat = req.lat,
-        lng = req.lng,
-        tipo = tipo
-    )
+    fun merge(entity: Camisa, req: CamisaRequest, tipo: TipoCamisa): Camisa {
+        entity.nombre = req.nombre
+        entity.talla = req.talla
+        entity.color = req.color
+        entity.precio = req.precio
+        entity.imagenUrl = req.imagenUrl
+        entity.lat = req.lat
+        entity.lng = req.lng
+        entity.tipo = tipo
+        return entity
+    }
 }

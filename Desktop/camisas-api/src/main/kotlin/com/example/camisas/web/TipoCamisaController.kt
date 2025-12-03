@@ -1,11 +1,8 @@
 package com.example.camisas.web
 
-import com.example.camisas.service.CamisaService
 import com.example.camisas.service.TipoCamisaService
-import com.example.camisas.web.dto.CamisaResponse
 import com.example.camisas.web.dto.TipoCamisaRequest
 import com.example.camisas.web.dto.TipoCamisaResponse
-import com.example.camisas.web.mapper.CamisaMapper
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.net.URI
@@ -13,8 +10,7 @@ import java.net.URI
 @RestController
 @RequestMapping("/api/tipos")
 class TipoCamisaController(
-    private val service: TipoCamisaService,
-    private val camisaService: CamisaService
+    private val service: TipoCamisaService
 ) {
     @GetMapping
     fun list(): List<TipoCamisaResponse> =
@@ -41,11 +37,5 @@ class TipoCamisaController(
     fun delete(@PathVariable id: Long): ResponseEntity<Unit> {
         service.delete(id)
         return ResponseEntity.noContent().build()
-    }
-
-    // --- ENDPOINT DE PRUEBA ---
-    @GetMapping("/testcamisas")
-    fun testCamisas(): List<CamisaResponse> {
-        return camisaService.list().map(CamisaMapper::toResponse)
     }
 }

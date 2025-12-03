@@ -6,10 +6,10 @@ import jakarta.persistence.*
 @Table(name = "tipos_camisa")
 class TipoCamisa(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    var id: Long? = null,
 
     @Column(nullable = false, unique = true, length = 100)
-    val nombre: String,
+    var nombre: String,
 
-    val descripcion: String? = null
+    var descripcion: String? = null
 )
